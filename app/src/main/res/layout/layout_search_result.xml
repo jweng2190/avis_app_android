@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/search_result_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textview_my_upcoming"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="15sp" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.Material.Light.ProgressBar.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_result_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/my_upcoming_section"
+        app:layout_constraintTop_toBottomOf="@id/search_result_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/other_upcoming_section"-->
+
+        <!--View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/divider_1"
+            android:background="@android:color/darker_gray"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" /-->
+
+        <TextView
+            android:id="@+id/textview_my_upcoming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/text_my_events"
+            app:layout_constraintTop_toBottomOf="@id/search_result_title"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_my_upcoming"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_my_upcoming"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toBottomOf="@id/textview_my_upcoming"
+            app:layout_constraintBottom_toTopOf="@+id/textview_other_upcoming"
+            tools:layout_editor_absoluteX="0dp"
+            android:visibility="gone" />
+
+    <!--/FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/other_upcoming_section"
+        app:layout_constraintTop_toBottomOf="@id/my_upcoming_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/past_section"-->
+
+        <!--View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/divider_2"
+            android:background="@android:color/darker_gray"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/-->
+
+        <TextView
+            android:id="@+id/textview_other_upcoming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/text_other_events"
+            app:layout_constraintTop_toBottomOf="@id/recycler_my_upcoming"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_other_upcoming"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_other_upcoming"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toBottomOf="@id/textview_other_upcoming"
+            app:layout_constraintBottom_toTopOf="@+id/textview_past"
+            tools:layout_editor_absoluteX="0dp"
+            android:visibility="gone"/>
+
+    <!--/FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/past_section"
+        app:layout_constraintTop_toBottomOf="@id/other_upcoming_section"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"-->
+
+        <!--View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/divider_3"
+            android:background="@android:color/darker_gray"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" /-->
+
+        <TextView
+            android:id="@+id/textview_past"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/text_past_events"
+            app:layout_constraintTop_toBottomOf="@id/recycler_other_upcoming"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_past"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_past"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toBottomOf="@id/textview_past"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="0dp"
+            android:visibility="gone"/>
+
+    <!--/FrameLayout-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

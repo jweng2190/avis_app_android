@@ -1,0 +1,9 @@
+.*
+!/.gitignore
+*.iml
+*.pro
+**/build/
+/captures
+gradle/
+local.properties
+

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <TextView
+        android:id="@+id/textNewAccountUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/newAccountUsername"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="New account username" />
+
+    <EditText
+        android:id="@+id/newAccountUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textNewAccountUsername"
+        app:layout_constraintBottom_toTopOf="@id/textNewAccountPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentLeft="true"
+        android:hint="Username"
+        android:imeOptions="actionNext"
+        android:inputType="textNoSuggestions" />
+
+    <TextView
+        android:id="@+id/textNewAccountPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/newAccountUsername"
+        app:layout_constraintBottom_toTopOf="@+id/newAccountPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="New account password" />
+
+    <EditText
+        android:id="@+id/newAccountPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textNewAccountPassword"
+        app:layout_constraintBottom_toTopOf="@+id/textReenterNewAccountPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentLeft="true"
+        android:hint="Password"
+        android:imeOptions="actionNext"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textReenterNewAccountPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/newAccountPassword"
+        app:layout_constraintBottom_toTopOf="@+id/reenterAccountPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Please reenter your password" />
+
+    <EditText
+        android:id="@+id/reenterAccountPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textReenterNewAccountPassword"
+        app:layout_constraintBottom_toTopOf="@+id/textNewAccountName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentLeft="true"
+        android:hint="Reenter Password"
+        android:imeOptions="actionNext"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textNewAccountName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/reenterAccountPassword"
+        app:layout_constraintBottom_toTopOf="@+id/newAccountName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Your Name" />
+
+    <EditText
+        android:id="@+id/newAccountName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textNewAccountName"
+        app:layout_constraintBottom_toTopOf="@+id/textEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentLeft="true"
+        android:hint="Name"
+        android:imeOptions="actionNext"
+        android:inputType="textNoSuggestions" />
+
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/newAccountName"
+        app:layout_constraintBottom_toTopOf="@+id/newAccountEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Your Email Address" />
+
+    <EditText
+        android:id="@+id/newAccountEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textEmail"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentLeft="true"
+        android:hint="Email"
+        android:imeOptions="actionDone"
+        android:inputType="textEmailAddress"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/newAccountEmail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="40dp"
+        android:text="Register" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

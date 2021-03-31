@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pattern_flowers" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2">
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/ivMyEvent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/image_event" />
+
+            <TextView
+                android:id="@+id/tvMyEvent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/text_my_events"
+                android:textSize="20sp"
+                android:textColor="#004d00"
+                android:textStyle="bold"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/ivUpcomingEvent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/image_event_green" />
+
+            <TextView
+                android:id="@+id/tvUpcomingEvent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/text_other_events"
+                android:textSize="20sp"
+                android:textColor="#004d00"
+                android:textStyle="bold"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/ivPastEvent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/image_event_red" />
+
+            <TextView
+                android:id="@+id/tvPastEvent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/text_past_events"
+                android:textSize="20sp"
+                android:textColor="#004d00"
+                android:textStyle="bold"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/ivMemo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/image_event" />
+
+            <TextView
+                android:id="@+id/tvMemo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/text_my_messages"
+                android:textSize="20sp"
+                android:textColor="#004d00"
+                android:textStyle="bold"/>
+
+        </FrameLayout>
+
+    </GridLayout>
+
+
+</FrameLayout>

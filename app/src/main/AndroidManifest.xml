@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.avisandover"
+    android:versionCode="1"
+    android:versionName="bull">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="org.avisandover.AVISApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name="org.avisandover.security.ForceChangePasswordActivity"></activity>
+        <activity
+            android:name="org.avisandover.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="org.avisandover.security.LoginActivity" />
+        <activity android:name="org.avisandover.settings.SettingActivity" />
+        <activity android:name="org.avisandover.security.AccountCreateActivity" />
+        <activity android:name="org.avisandover.template.BaseMenuActivity" />
+        <activity android:name="org.avisandover.template.BaseMenuLoggedinActivity" />
+        <activity android:name="org.avisandover.event.EventActivity" />
+        <activity android:name="org.avisandover.UserHomeActivity" />
+        <activity android:name="org.avisandover.GeneralHomeActivity" />
+        <activity android:name="org.avisandover.event.MyEventActivity" />
+        <activity android:name="org.avisandover.search.SearchActivity" />
+        <activity android:name="org.avisandover.search.SearchResultActivity" />
+        <activity android:name="org.avisandover.security.PasswordResetActivity" />
+        <activity android:name="org.avisandover.security.PasswordResetConfirmationActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
