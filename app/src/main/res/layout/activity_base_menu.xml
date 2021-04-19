@@ -14,7 +14,7 @@
             android:id="@+id/toolbarCommon"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorAccent"
+            android:background="@color/Coral"
             app:layout_anchor="@+id/appBarLayout"
             app:layout_anchorGravity="center"
             app:popupTheme="@style/AppTheme"

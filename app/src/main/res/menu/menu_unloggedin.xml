@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/login_menu"
+        android:id="@+id/reservation_menu"
         android:orderInCategory="0"
-        android:title="Login" />
+        android:title="Reservations" />
     <item
         android:id="@+id/about_menu"
         android:orderInCategory="1"

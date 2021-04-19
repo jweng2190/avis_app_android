@@ -40,6 +40,8 @@
         <activity android:name="org.avisandover.search.SearchResultActivity" />
         <activity android:name="org.avisandover.security.PasswordResetActivity" />
         <activity android:name="org.avisandover.security.PasswordResetConfirmationActivity" />
+        <activity android:name=".reservation.ReservationActivity" />
+        <activity android:name=".reservation.ReservationListActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

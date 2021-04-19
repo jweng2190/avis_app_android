@@ -10,7 +10,8 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 
 import org.avisandover.R;
-import org.avisandover.security.LoginActivity;
+import org.avisandover.reservation.ReservationActivity;
+import org.avisandover.reservation.ReservationListActivity;
 
 public class BaseMenuUnloggedinActivity extends BaseMenuActivity {
     @Override
@@ -30,8 +31,8 @@ public class BaseMenuUnloggedinActivity extends BaseMenuActivity {
         Intent intent;
 
         switch(id) {
-            case R.id.login_menu:
-                intent = new Intent(this, LoginActivity.class);
+            case R.id.reservation_menu:
+                intent = new Intent(this, ReservationListActivity.class);
                 startActivity(intent);
                 break;
             case R.id.about_menu:

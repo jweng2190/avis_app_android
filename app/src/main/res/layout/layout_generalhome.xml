@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <ImageView
-        android:layout_height="wrap_content"
+        android:id="@+id/avis_scenery"
         android:layout_width="match_parent"
-        android:src="@drawable/sc_home"
-        android:background="@color/DarkOrange"
-        android:adjustViewBounds="true" />
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avis_scenery"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/DarkOrange"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/avis_scenery"
+        app:layout_constraintBottom_toBottomOf="@id/avis_scenery"
+        app:layout_constraintStart_toStartOf="@id/avis_scenery"
+        app:layout_constraintEnd_toEndOf="@id/avis_scenery"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:fontFamily="@font/dancing_script"
         android:text="@string/app_home_title"
         android:textAlignment="gravity"
-        android:textColor="@color/Crimson"
+        android:textColor="@color/Lime"
         android:textSize="35sp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
