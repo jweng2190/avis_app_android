@@ -18,7 +18,6 @@ public class ReservationActivity extends AppCompatActivity {
         int reservationPosId = getIntent().getIntExtra("reservationPosId", -1);
         switch (ReservationListActivity.reservations[reservationPosId]) {
             case "Andover Highlands":
-                myWebView.loadUrl("file:///android_asset/andover_highlands.html");
                 break;
             case "Baker's Meadow":
                 myWebView.loadUrl("file:///android_asset/bakers_meadow.html");

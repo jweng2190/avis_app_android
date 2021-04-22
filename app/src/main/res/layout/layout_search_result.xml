@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/textview_my_upcoming"
+        app:layout_constraintBottom_toTopOf="@+id/textview_upcoming"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -45,23 +45,23 @@
             android:layout_marginRight="20dp" /-->
 
         <TextView
-            android:id="@+id/textview_my_upcoming"
+            android:id="@+id/textview_upcoming"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="@string/text_my_events"
             app:layout_constraintTop_toBottomOf="@id/search_result_title"
-            app:layout_constraintBottom_toTopOf="@+id/recycler_my_upcoming"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_upcoming"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_my_upcoming"
+            android:id="@+id/recycler_upcoming"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scrollbars="vertical"
-            app:layout_constraintTop_toBottomOf="@id/textview_my_upcoming"
+            app:layout_constraintTop_toBottomOf="@id/textview_upcoming"
             app:layout_constraintBottom_toTopOf="@+id/textview_other_upcoming"
             tools:layout_editor_absoluteX="0dp"
             android:visibility="gone" />
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="@string/text_other_events"
-            app:layout_constraintTop_toBottomOf="@id/recycler_my_upcoming"
+            app:layout_constraintTop_toBottomOf="@id/recycler_upcoming"
             app:layout_constraintBottom_toTopOf="@+id/recycler_other_upcoming"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

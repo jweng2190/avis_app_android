@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 
+import org.avisandover.EventsActivity;
 import org.avisandover.R;
 import org.avisandover.reservation.ReservationActivity;
 import org.avisandover.reservation.ReservationListActivity;
@@ -33,6 +34,10 @@ public class BaseMenuUnloggedinActivity extends BaseMenuActivity {
         switch(id) {
             case R.id.reservation_menu:
                 intent = new Intent(this, ReservationListActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.events_menu:
+                intent = new Intent(this, EventsActivity.class);
                 startActivity(intent);
                 break;
             case R.id.about_menu:

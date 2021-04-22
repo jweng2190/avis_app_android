@@ -84,8 +84,8 @@ public class SearchResultActivity extends BaseMenuLoggedinActivity {
                             return;
                         }
                         if(searchResult.has("my_upcoming")) {
-                            View tv = findViewById(R.id.textview_my_upcoming);
-                            recyclerViewMyUpcoming = findViewById(R.id.recycler_my_upcoming);
+                            View tv = findViewById(R.id.textview_upcoming);
+                            recyclerViewMyUpcoming = findViewById(R.id.recycler_upcoming);
                             tv.setVisibility(View.VISIBLE);
                             recyclerViewMyUpcoming.setVisibility(View.VISIBLE);
                             recyclerViewMyUpcoming.setHasFixedSize(true);

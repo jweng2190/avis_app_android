@@ -30,6 +30,9 @@ public class ReservationListActivity extends BaseMenuUnloggedinActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0) {
+                    return;
+                }
                 Intent intent = new Intent(mContext, ReservationActivity.class);
                 intent.putExtra("reservationPosId", position);
                 startActivity(intent);

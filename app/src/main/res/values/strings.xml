@@ -8,6 +8,7 @@
     <string name="previous">Previous</string>
 
     <string name="text_my_events">My Upcoming Events</string>
+    <string name="text_upcoming_events">Upcoming Events</string>
     <string name="text_other_events">Other Upcoming Events</string>
     <string name="text_past_events">Past Events</string>
     <string name="text_my_messages">My Messages</string>
