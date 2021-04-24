@@ -34,10 +34,12 @@ public class BaseMenuUnloggedinActivity extends BaseMenuActivity {
         switch(id) {
             case R.id.reservation_menu:
                 intent = new Intent(this, ReservationListActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;
             case R.id.events_menu:
                 intent = new Intent(this, EventsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;
             case R.id.about_menu:

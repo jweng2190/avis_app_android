@@ -57,10 +57,10 @@ public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.EventV
         GradientDrawable drawable = (GradientDrawable) v.getBackground();
         if(eventType == 1) {
             //v.setBackgroundColor(ContextCompat.getColor(mContext, R.color.Orange));
-            drawable.setColor(ContextCompat.getColor(mContext, R.color.Orange));
+            drawable.setColor(ContextCompat.getColor(mContext, R.color.SpringGreen));
         } else if(eventType == 2) {
             //v.setBackgroundColor(ContextCompat.getColor(mContext, R.color.SpringGreen));
-            drawable.setColor(ContextCompat.getColor(mContext, R.color.SpringGreen));
+            drawable.setColor(ContextCompat.getColor(mContext, R.color.Orange));
         } else {
             //v.setBackgroundColor(ContextCompat.getColor(mContext, R.color.LightCoral));
             drawable.setColor(ContextCompat.getColor(mContext, R.color.LightCoral));

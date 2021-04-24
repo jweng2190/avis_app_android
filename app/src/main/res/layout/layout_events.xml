@@ -31,11 +31,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_upcoming"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:scrollbars="vertical"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/textview_upcoming"
         app:layout_constraintBottom_toTopOf="@+id/textview_past"
-        tools:layout_editor_absoluteX="0dp"
         android:visibility="gone" />
 
 
@@ -54,11 +52,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_past"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:scrollbars="vertical"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/textview_past"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp"
         android:visibility="gone"/>
 
 
