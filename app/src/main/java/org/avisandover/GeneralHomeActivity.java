@@ -4,10 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import org.avisandover.R;
-
-import org.avisandover.template.BaseMenuUnloggedinActivity;
-
 public class GeneralHomeActivity extends BaseMenuUnloggedinActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

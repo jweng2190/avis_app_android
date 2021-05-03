@@ -43,6 +43,7 @@
         <activity android:name=".reservation.ReservationActivity" />
         <activity android:name=".reservation.ReservationListActivity" />
         <activity android:name=".EventsActivity" />
+        <activity android:name=".joindonate.JoinDonateActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

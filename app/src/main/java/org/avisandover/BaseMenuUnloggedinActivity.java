@@ -1,4 +1,4 @@
-package org.avisandover.template;
+package org.avisandover;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,8 +11,10 @@ import androidx.annotation.NonNull;
 
 import org.avisandover.EventsActivity;
 import org.avisandover.R;
+import org.avisandover.joindonate.JoinDonateActivity;
 import org.avisandover.reservation.ReservationActivity;
 import org.avisandover.reservation.ReservationListActivity;
+import org.avisandover.template.BaseMenuActivity;
 
 public class BaseMenuUnloggedinActivity extends BaseMenuActivity {
     @Override
@@ -42,11 +44,16 @@ public class BaseMenuUnloggedinActivity extends BaseMenuActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;
+            case R.id.join_donate_menu:
+                intent = new Intent(this, JoinDonateActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                break;
             case R.id.about_menu:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 AlertDialog alertDialog = builder.create();
                 alertDialog.setTitle("About");
-                alertDialog.setMessage("AVIS V1");
+                alertDialog.setMessage("Andover Village Improvement Society V1");
                 alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {

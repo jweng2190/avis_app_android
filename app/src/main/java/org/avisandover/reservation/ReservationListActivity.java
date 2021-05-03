@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import org.avisandover.R;
-import org.avisandover.template.BaseMenuUnloggedinActivity;
+import org.avisandover.BaseMenuUnloggedinActivity;
 
 public class ReservationListActivity extends BaseMenuUnloggedinActivity {
     private Context mContext;

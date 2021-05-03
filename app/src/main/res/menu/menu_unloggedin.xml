@@ -3,14 +3,14 @@
 
     <item
         android:id="@+id/reservation_menu"
-        android:orderInCategory="0"
         android:title="Reservations" />
     <item
         android:id="@+id/events_menu"
-        android:orderInCategory="1"
         android:title="Events" />
     <item
+        android:id="@+id/join_donate_menu"
+        android:title="Join/Donate" />
+    <item
         android:id="@+id/about_menu"
-        android:orderInCategory="2"
         android:title="About" />
 </menu>

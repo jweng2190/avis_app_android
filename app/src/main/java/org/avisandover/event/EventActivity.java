@@ -1,5 +1,6 @@
 package org.avisandover.event;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,6 +24,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.work.Data;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
@@ -55,7 +57,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class EventActivity extends BaseMenuLoggedinActivity {
+public class EventActivity extends AppCompatActivity {
 
     private TextView mTextView;
     private Context mContext;
@@ -67,6 +69,7 @@ public class EventActivity extends BaseMenuLoggedinActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_event);
         mContext = this;
         eventNotificationPref = mContext.getSharedPreferences("notifyPrefs", Context.MODE_PRIVATE);
         prefEditor = eventNotificationPref.edit();
@@ -134,11 +137,13 @@ public class EventActivity extends BaseMenuLoggedinActivity {
         }
 
         String cost = event.optString("cost");
-        sb.append("Cost: ");
-        if(cost.equals("0")) {
-            sb.append("Free");
-        } else {
-            sb.append("$" + cost);
+        if(!cost.equals("null")) {
+            sb.append("Cost: ");
+            if (cost.equals("0")) {
+                sb.append("Free");
+            } else {
+                sb.append("$" + cost);
+            }
         }
 
         String eventContent = sb.toString();
@@ -194,7 +199,9 @@ public class EventActivity extends BaseMenuLoggedinActivity {
         Intent intent = getIntent();
         final int eventType = intent.getIntExtra("Event Type", 0);
         TextView tv;
-        if (eventType == 1 || eventType == 2) {
+        tv = findViewById(R.id.textview_event);
+        tv.setText(spannable);
+        /*if (eventType == 1 || eventType == 2) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(this, R.layout.layout_event, null);
             FrameLayout frameLayout = findViewById(R.id.contentPane);
             frameLayout.addView(linearLayout);
@@ -206,7 +213,7 @@ public class EventActivity extends BaseMenuLoggedinActivity {
             frameLayout.addView(linearLayout);
             tv = findViewById(R.id.textview_past_event);
             tv.setText(spannable);
-        }
+        }*/
         tv.setMovementMethod(LinkMovementMethod.getInstance());
 
         Button okButton = findViewById(R.id.button_ok);
@@ -217,7 +224,7 @@ public class EventActivity extends BaseMenuLoggedinActivity {
             }
         });
 
-        if (eventType == 1 || eventType == 2) {
+        /*if (eventType == 1 || eventType == 2) {
             Button unregisterButton = findViewById(R.id.button_unregister);
             String url = null;
             String confirmMsg = null;
@@ -339,6 +346,6 @@ public class EventActivity extends BaseMenuLoggedinActivity {
                 }
 
             });
-        }
+        }*/
     }
 }

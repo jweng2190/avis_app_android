@@ -2,7 +2,6 @@ package org.avisandover;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -22,13 +21,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.avisandover.adapter.UserDataAdapter;
 import org.avisandover.network.RequestQueueSingleton;
-import org.avisandover.template.BaseMenuUnloggedinActivity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class EventsActivity extends BaseMenuUnloggedinActivity {
     private RecyclerView recyclerViewUpcoming;
@@ -67,6 +62,8 @@ public class EventsActivity extends BaseMenuUnloggedinActivity {
                             recyclerViewUpcoming = findViewById(R.id.recycler_upcoming);
                             tv.setVisibility(View.VISIBLE);
                             recyclerViewUpcoming.setVisibility(View.VISIBLE);
+                            View separator = findViewById(R.id.separator);
+                            separator.setVisibility(View.VISIBLE);
                             recyclerViewUpcoming.setHasFixedSize(true);
                             layoutManagerUpcoming = new LinearLayoutManager(mContext);
                             recyclerViewUpcoming.setLayoutManager(layoutManagerUpcoming);
@@ -109,6 +106,9 @@ public class EventsActivity extends BaseMenuUnloggedinActivity {
                         } else if (error instanceof AuthFailureError) {
                             Toast.makeText(mContext, "Error: authentication failed!",
                                     Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(mContext, "Error: server error!",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -1,8 +1,11 @@
 package org.avisandover.reservation;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +18,18 @@ public class ReservationActivity extends AppCompatActivity {
         setContentView(myWebView);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        myWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
+                if (webResourceRequest.getUrl().getScheme().equals("file")) {
+                    webView.loadUrl(webResourceRequest.getUrl().toString());
+                } else {
+                    // If the URI is not pointing to a local file, open with an ACTION_VIEW Intent
+                    webView.getContext().startActivity(new Intent(Intent.ACTION_VIEW, webResourceRequest.getUrl()));
+                }
+                return true;
+            }
+        });
         int reservationPosId = getIntent().getIntExtra("reservationPosId", -1);
         switch (ReservationListActivity.reservations[reservationPosId]) {
             case "Andover Highlands":

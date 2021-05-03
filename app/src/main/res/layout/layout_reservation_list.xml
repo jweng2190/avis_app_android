@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/avis_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/avis_background2"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop" />
 
     <ListView
         android:id="@+id/reservation_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/avis_background"
+        app:layout_constraintBottom_toBottomOf="@id/avis_background"
+        app:layout_constraintStart_toStartOf="@id/avis_background"
+        app:layout_constraintEnd_toEndOf="@id/avis_background"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:divider="@android:color/transparent"
-        android:dividerHeight="10.0sp"/>
+        android:dividerHeight="10.0sp" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
