@@ -99,7 +99,7 @@ public class EventsActivity extends BaseMenuUnloggedinActivity {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e(TAG, error.getMessage());
+                        //Log.e(TAG, error.getMessage());
                         if (error instanceof TimeoutError || error instanceof NoConnectionError) {
                             Toast.makeText(mContext, "Error: network timeout!",
                                     Toast.LENGTH_LONG).show();

@@ -22,6 +22,8 @@ public class ReservationActivity extends AppCompatActivity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
                 if (webResourceRequest.getUrl().getScheme().equals("file")) {
+                    //WebSettings settings = webView.getSettings();
+                    //settings.setJavaScriptEnabled(true);
                     webView.loadUrl(webResourceRequest.getUrl().toString());
                 } else {
                     // If the URI is not pointing to a local file, open with an ACTION_VIEW Intent
