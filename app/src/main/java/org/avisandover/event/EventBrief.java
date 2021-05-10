@@ -1,5 +1,6 @@
 package org.avisandover.event;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -27,7 +28,16 @@ public class EventBrief {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         SimpleDateFormat df = new SimpleDateFormat("EEE, MMM dd, yyyy, HH:mm");
-        String dateStr = df.format(eventDate);
+        String dateStr = null;
+        try {
+            if(eventDate.equals(df.parse("Mon, Jan 01, 1000, 00:00"))) {
+                dateStr = "TBD";
+            } else {
+                dateStr = df.format(eventDate);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         sb.append(dateStr + "\n").append(eventName);
         return sb.toString();
     }

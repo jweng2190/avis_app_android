@@ -95,8 +95,12 @@ public class EventActivity extends AppCompatActivity {
         Date eventDate;
         try {
             eventDate = df.parse(dateStr);
-            df.applyPattern("MMM d, YYYY HH:mm");
-            dateStrFormatted = df.format(eventDate);
+            if(eventDate.equals(df.parse("1000-01-01T00:00:00"))) {
+                dateStrFormatted = "TBD";
+            } else {
+                df.applyPattern("MMM d, YYYY HH:mm");
+                dateStrFormatted = df.format(eventDate);
+            }
         } catch (ParseException e) {
             e.printStackTrace();
         }
