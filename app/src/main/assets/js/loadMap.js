@@ -11,8 +11,8 @@ require(["esri/config","esri/Map", "esri/views/MapView",
         var editGraphic;
 
         const urlParams = new URLSearchParams(window.location.search);
-        var longi = urlParams.get('longitude');
-        var lati = urlParams.get('latitude');
+        var longi = urlParams.get('longitude').split(',');
+        var lati = urlParams.get('latitude').split(',');
 
         // GraphicsLayer to hold graphics created via sketch view model
         const graphicsLayer = new GraphicsLayer({
@@ -26,16 +26,20 @@ require(["esri/config","esri/Map", "esri/views/MapView",
 
         const view = new MapView({
                   map: map,
-                  center: [longi, lati], // Longitude, latitude
+                  center: [longi[0], lati[0]], // Longitude, latitude
                   zoom: 15, // Zoom level
                   container: "mapViewDiv" // Div element
                 });
 
-        var point = {
-                type: "point", // autocasts as new Point()
-                longitude: longi,
-                latitude: lati
-              };
+        
+        var points = [];
+        for(var i=0; i<longi.length; i++) {
+          points.push({
+            type: "point", // autocasts as new Point()
+            longitude: longi[i],
+            latitude: lati[i]
+          })
+        }
 
         var markerSymbol = {
                 type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
@@ -44,14 +48,18 @@ require(["esri/config","esri/Map", "esri/views/MapView",
                 height: "30px"
               };
 
-        var pointGraphic = new Graphic({
-                geometry: webMercatorUtils.geographicToWebMercator(point),
-                symbol: markerSymbol
-              });
+        
+        var pointGraphics = [];
+        for(var i=0; i<points.length; i++) {
+          pointGraphics.push({
+            geometry: webMercatorUtils.geographicToWebMercator(points[i]),
+            symbol: markerSymbol
+          })
+        }
 
         view.when(function () {
 
-                graphicsLayer.graphics.addMany([pointGraphic]);
+                graphicsLayer.graphics.addMany(pointGraphics);
 
                 // create a new sketch view model
                 const sketchViewModel = new SketchViewModel({
