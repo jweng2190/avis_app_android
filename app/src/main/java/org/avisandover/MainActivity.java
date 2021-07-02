@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((AVISApplication) getApplication()).setBaseUrl("http://ec2-13-58-197-138.us-east-2.compute.amazonaws.com");
+        ((AVISApplication) getApplication()).setBaseUrl("http://72.167.43.203");
         createNotificationChannel();
         auth = new UserAuth(this);
         Intent intent;

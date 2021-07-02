@@ -55,7 +55,7 @@ public class MyEventActivity extends BaseMenuLoggedinActivity {
 
         baseUrl = ((AVISApplication) getApplication()).getBaseUrl();
         if(baseUrl == null) {
-            baseUrl = "http://ec2-13-58-197-138.us-east-2.compute.amazonaws.com";
+            baseUrl = "http://72.167.43.203";
         }
         loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
 
