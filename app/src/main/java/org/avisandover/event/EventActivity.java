@@ -1,59 +1,35 @@
 package org.avisandover.event;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.StyleSpan;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.work.Data;
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
-import androidx.work.WorkRequest;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import org.avisandover.R;
-import org.avisandover.UserHomeActivity;
-import org.avisandover.network.RequestQueueSingleton;
-import org.avisandover.notification.NotificationWorker;
-import org.avisandover.template.BaseMenuLoggedinActivity;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
+import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -87,12 +63,13 @@ public class EventActivity extends AppCompatActivity {
         //Spannable eventDetails = new SpannableString();
         StringBuilder sb = new StringBuilder();
         sb.append("Event Name: ");
-        sb.append(event.optString("event_name")).append("\n");
+        final String eventName = event.optString("event_name");
+        sb.append(eventName).append("\n");
         sb.append("Date: ");
         final String dateStr = event.optString("date_time");
         String dateStrFormatted = null;
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        Date eventDate;
+        Date eventDate = null;
         try {
             eventDate = df.parse(dateStr);
             if(eventDate.equals(df.parse("1000-01-01T00:00:00"))) {
@@ -104,10 +81,12 @@ public class EventActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        final Date finalEventDate = eventDate;
         sb.append(dateStrFormatted).append("\n");
         sb.append("Details: ");
-        sb.append(event.optString("event_description")).append("\n");
-        String location, contactEmail, contactPhone;
+        final String eventDescription = event.optString("event_description");
+        sb.append(eventDescription).append("\n");
+        final String location, contactEmail, contactPhone;
 
             location = event.optString("location");
             contactEmail = event.optString("contact_email");
@@ -205,6 +184,25 @@ public class EventActivity extends AppCompatActivity {
         TextView tv;
         tv = findViewById(R.id.textview_event);
         tv.setText(spannable);
+        if(eventType == 1) {
+            ImageView imageView = findViewById(R.id.calendar_image);
+            imageView.setVisibility(View.VISIBLE);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Calendar beginTime = Calendar.getInstance(TimeZone.getTimeZone("America/New_York"));
+                    beginTime.setTime(finalEventDate);
+                    Intent intent = new Intent(Intent.ACTION_INSERT)
+                            .setData(CalendarContract.Events.CONTENT_URI)
+                            .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                            .putExtra(CalendarContract.Events.TITLE, eventName)
+                            .putExtra(CalendarContract.Events.DESCRIPTION, eventDescription)
+                            .putExtra(CalendarContract.Events.EVENT_LOCATION, location);
+                    startActivity(intent);
+                }
+            });
+        }
+
         /*if (eventType == 1 || eventType == 2) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(this, R.layout.layout_event, null);
             FrameLayout frameLayout = findViewById(R.id.contentPane);
